@@ -1,0 +1,38 @@
+<?php //use BFlickr\phpFlickr;
+
+class Bflickr_Access_Controller extends Controller {
+
+	public function action_connect()
+	{
+		// code here..
+		
+		//return View::make('bflickr.access.index');
+		$f = new phpFlickr('93112056337922cb0cb5f03e083fb434','d6857e8c4152d100',true);
+		
+	        $f->auth("write", false);
+		//echo "hola";
+		//echo path('app');
+		//echo Bundle::path('bflickr').'libraries'.DS.'phpFlickr.php';
+
+
+	}
+
+	public function action_callback($frob)
+	{
+		// code here..
+			echo $frob;
+		//return View::make('bflickr.access.index');
+	}
+	public function action_index(){
+		$aliases = Config::get('application.aliases');
+
+		$new_line = '<br>';
+
+		echo '<?php'.$new_line.$new_line;
+
+		foreach ($aliases as $alias => $name_space)
+		{
+		    echo 'class '.$alias.' extends '.$name_space.'{};'.$new_line;
+		}
+	}
+}
