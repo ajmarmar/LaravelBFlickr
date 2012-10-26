@@ -1,5 +1,4 @@
 <?php
-
 /*
 |Carga de Nombre de espacios.
 |
